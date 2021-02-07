@@ -1,0 +1,45 @@
+.app-wrapper {
+    margin: 0 auto;
+    display: grid;
+    width: 1200px;
+
+    grid-template-areas:
+    "h h"
+    "n c";
+
+    grid-template-rows: 60px 1fr;
+    grid-template-columns: 2fr 10fr;
+    grid-gap: 10px;
+
+    .header-wrapper {
+        grid-area: h;
+        background-color: greenyellow;
+
+        img {
+            width: 50px
+        }
+    }
+
+    .nav-wrapper {
+        grid-area: n;
+        background-color: cornflowerblue;
+
+    }
+
+    .content-wrapper {
+        grid-area: c;
+        width: 800px;
+        background-color: dimgray;
+
+        img {
+            width: 100%;
+        }
+
+        .content-user {
+            &_logo {
+                width: 100px;
+            }
+        }
+    }
+}
+
