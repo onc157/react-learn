@@ -1,15 +1,15 @@
-import './App.scss';
-import Header from './components/Header';
-import Navbar from './components/Navbar';
-import Profile from './components/Profile';
+import './App.scss'
+import Navbar from './components/navbar/Navbar';
+import Main from './components/main/Main';
+import Sidebar from './components/sidebar/Sidebar';
 
-const App = () => {
+function App() {
   return (
-    <div className='app-wrapper'>
-      <Header />
+    <>
       <Navbar />
-      <Profile />
-    </div>
+      <Main />
+      <Sidebar />
+    </>
   )
 }
 

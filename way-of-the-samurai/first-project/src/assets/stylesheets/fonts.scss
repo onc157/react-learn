@@ -1,0 +1,32 @@
+@font-face {
+  font-family: Helvetica;
+  src: url('../fonts/HelveticaRegular.ttf');
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Helvetica;
+  src: url('../fonts/HelveticaBold.ttf');
+  font-style: normal;
+  font-weight: 700;
+}
+
+
+@mixin helvetica-regular {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@mixin helvetica-bold {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@mixin roboto-bold {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+}

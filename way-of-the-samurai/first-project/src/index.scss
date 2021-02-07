@@ -1,0 +1,14 @@
+@import 'assets/stylesheets/common/reset';
+@import './assets/stylesheets/fonts';
+
+#root {
+  @include helvetica-regular();
+
+  display: grid;
+  grid-template-columns: 3fr 8fr 4fr;
+  grid-template-rows: auto;
+  grid-template-areas: "navbar main sidebar";
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
