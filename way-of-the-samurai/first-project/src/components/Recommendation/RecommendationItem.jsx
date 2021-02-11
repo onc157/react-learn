@@ -1,6 +1,6 @@
 import logoHelp from '../../assets/img/logo_help.svg'
 
-const Style = () => {
+const RecommendationItem = () => {
   return (
     <div className='recommendation-item'>
       <div className='item-logo'>
@@ -14,4 +14,4 @@ const Style = () => {
   )
 }
 
-export default Style
+export default RecommendationItem

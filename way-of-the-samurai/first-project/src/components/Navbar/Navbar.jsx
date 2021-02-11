@@ -1,14 +1,14 @@
-import Menu from '../menu/Menu'
+import Menu from './Menu/Menu'
 import logo from '../../assets/img/logo.svg'
 import { Button } from '@material-ui/core'
-import useStyles from './style';
+import useStyles from './style'
 
 const Navbar = () => {
   const classes = useStyles();
 
   return (
     <div className="navbar-wrapper">
-      <a href='#' className="logo" >
+      <a href='/home' className="logo" >
         <img src={logo} alt="logo" />
       </a>
       <Menu />

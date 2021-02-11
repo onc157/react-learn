@@ -1,0 +1,27 @@
+@import '../../assets/stylesheets/colors';
+
+.messages {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+
+  .users-list {
+    .user {
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: $blue-color;
+      color: $white-color;
+      border-radius: 15px;
+    }
+  }
+
+  .messages-list {
+    &_item {
+      margin: 10px;
+      padding: 10px 20px;
+      color: $blue-color;
+      border: 1px solid $blue-color;
+      border-radius: 15px;
+    }
+  }
+}

@@ -1,6 +1,6 @@
-import Search from '../search/Search';
-import Recommendation from '../recommendation/Recommendation';
-import HelpLinks from '../helpLinks/HelpLinks.jsx';
+import Search from '../Search/Search';
+import Recommendation from '../Recommendation/Recommendation';
+import HelpLinks from '../HelpLinks/HelpLinks.jsx';
 
 const Sidebar = () => {
   return (

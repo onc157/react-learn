@@ -1,6 +1,6 @@
-import profileCover from '../../assets/img/main_cover.png'
+import profileCover from '../../../assets/img/main_cover.png'
 
-const Profile = () => {
+const ProfileHeader = () => {
   return (
     <div className='profile'>
       <div className='profile-cover'>
@@ -15,4 +15,4 @@ const Profile = () => {
   )
 }
 
-export default Profile
+export default ProfileHeader
