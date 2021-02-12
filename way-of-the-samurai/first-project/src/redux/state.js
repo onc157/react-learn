@@ -1,3 +1,5 @@
+import { rerenderEntireTree } from '../render';
+
 export const state = {
   messagesPage: {
     usersData: [
@@ -29,5 +31,24 @@ export const state = {
         id: 2
       }
     ],
+    newPostContent: ''
   }
+}
+
+export const addPost = () => {
+  const newPost = {
+    name: 'DubaiAirlines',
+    account: '@DubaiAirlines',
+    content: state.profilePage.newPostContent,
+    id: 3
+  }
+
+  state.profilePage.postsData.push(newPost)
+  state.profilePage.newPostContent = ''
+  rerenderEntireTree(state)
+}
+
+export const updateNewPostContent = (newText) => {
+  state.profilePage.newPostContent = newText
+  rerenderEntireTree(state)
 }

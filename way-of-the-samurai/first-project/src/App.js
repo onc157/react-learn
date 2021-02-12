@@ -24,7 +24,13 @@ const App = (props) => {
         } />
         <Route path='/bookmarks' component ={Bookmarks} />
         <Route path='/lists' component ={Lists} />
-        <Route path='/profile' render ={() => <Profile state={props.state.profilePage}/>} />
+        <Route path='/profile' render ={
+          () => <Profile
+            profilePage={props.state.profilePage}
+            addPost={props.addPost}
+            updateNewPostContent={props.updateNewPostContent}
+          />
+        } />
       </div>
       <Sidebar />
     </>

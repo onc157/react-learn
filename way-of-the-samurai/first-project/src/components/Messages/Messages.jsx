@@ -1,6 +1,7 @@
+import User from './User/User'
+import Message from './Message/Message'
+import AddMessage from './AddMessage/AddMessage'
 import './style.scss'
-import User from './User/User';
-import Message from './Message/Message';
 
 const Messages = (props) => {
   const usersElements = props.state.usersData
@@ -18,6 +19,7 @@ const Messages = (props) => {
           {messagesElements}
         </div>
       </div>
+      <AddMessage />
     </>
   )
 }

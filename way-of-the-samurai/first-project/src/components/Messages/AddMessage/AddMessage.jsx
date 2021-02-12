@@ -8,30 +8,23 @@ const ProfileCreatePost = (props) => {
 
   const newPostElement = React.createRef();
 
-  const addPost = () => {
-    props.addPost()
-    // props.updateNewPostContent('')
-  }
-
-  const onPostChange = () => {
+  const addMessage = () => {
     const content = newPostElement.current.value
-    props.updateNewPostContent(content)
+    alert(content)
   }
 
   return (
-    <div className="create-post-wrapper">
+    <div className="create-message-wrapper">
       <textarea
         className="create-post_input"
         placeholder="Enter you message here"
-        onChange={onPostChange}
         ref={newPostElement}
-        value={props.newPostContent}
-      />
+      ></textarea>
       <Button
         className={classes.root}
         variant="contained"
         color="primary"
-        onClick={addPost}
+        onClick={addMessage}
       >
         CREATE POST
       </Button>

@@ -6,8 +6,12 @@ const Profile = (props) => {
   return (
     <>
       <ProfileHeader />
-      <ProfileCreatePost />
-      <ProfilePosts postsData={props.state.postsData} />
+      <ProfileCreatePost
+        addPost={props.addPost}
+        newPostContent={props.profilePage.newPostContent}
+        updateNewPostContent={props.updateNewPostContent}
+      />
+      <ProfilePosts postsData={props.profilePage.postsData}/>
     </>
   )
 }
