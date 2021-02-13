@@ -1,7 +1,28 @@
 import reportWebVitals from './reportWebVitals';
-import { rerenderEntireTree } from './render';
-import { state } from './redux/state';
+import { store } from './redux/store';
+import ReactDOM from 'react-dom';
+import React from 'react';
+import App from './App';
+import { BrowserRouter } from 'react-router-dom';
+import './index.scss'
 
-rerenderEntireTree(state)
+let rerenderEntireTree = (state) => {
+  ReactDOM.render(
+    <BrowserRouter>
+      <React.StrictMode>
+        <App
+          state={state}
+          addPost={store.addPost.bind(store)}
+          updateNewPostContent={store.updateNewPostContent.bind(store)}
+        />
+      </React.StrictMode>
+    </BrowserRouter>,
+    document.getElementById('root')
+  );
+}
+
+rerenderEntireTree(store.getState())
+
+store.subscribe(rerenderEntireTree)
 
 reportWebVitals();

@@ -10,7 +10,6 @@ const ProfileCreatePost = (props) => {
 
   const addPost = () => {
     props.addPost()
-    // props.updateNewPostContent('')
   }
 
   const onPostChange = () => {
