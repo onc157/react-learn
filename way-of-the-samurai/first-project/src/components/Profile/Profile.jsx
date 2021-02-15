@@ -7,9 +7,8 @@ const Profile = (props) => {
     <>
       <ProfileHeader />
       <ProfileCreatePost
-        addPost={props.addPost}
         newPostContent={props.profilePage.newPostContent}
-        updateNewPostContent={props.updateNewPostContent}
+        dispatch={props.dispatch}
       />
       <ProfilePosts postsData={props.profilePage.postsData}/>
     </>

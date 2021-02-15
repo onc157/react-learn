@@ -20,16 +20,17 @@ const App = (props) => {
         <Route path='/explore' component ={Explore} />
         <Route path='/notifications' component ={Notifications} />
         <Route path='/messages' render ={() =>
-          <Messages state={props.state.messagesPage} />
+          <Messages
+            state={props.state.messagesPage}
+            dispatch={props.dispatch}
+          />
         } />
         <Route path='/bookmarks' component ={Bookmarks} />
         <Route path='/lists' component ={Lists} />
         <Route path='/profile' render ={
-
           () => <Profile
             profilePage={props.state.profilePage}
-            addPost={props.addPost}
-            updateNewPostContent={props.updateNewPostContent}
+            dispatch={props.dispatch}
           />
         } />
       </div>

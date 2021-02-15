@@ -19,7 +19,10 @@ const Messages = (props) => {
           {messagesElements}
         </div>
       </div>
-      <AddMessage />
+      <AddMessage
+        dispatch={props.dispatch}
+        newMessageContent={props.state.newMessageContent}
+      />
     </>
   )
 }
