@@ -2,7 +2,7 @@ import React from 'react';
 import './style.scss'
 import { Button } from '@material-ui/core';
 import useStyles from './style';
-import { sendMessageCreator, updateNewMessageContentCreator } from '../../../redux/store';
+import { sendMessageCreator, updateNewMessageContentCreator } from '../../../redux/reducers/messages-reducer';
 
 const ProfileCreatePost = (props) => {
   const classes = useStyles()

@@ -2,7 +2,7 @@ import React from 'react';
 import './style.scss'
 import { Button } from '@material-ui/core';
 import useStyles from './style';
-import { addPostActionCreator, updateNewPostContentActionCreator } from '../../../redux/store';
+import { addPostActionCreator, updateNewPostContentActionCreator } from '../../../redux/reducers/profile-reducer';
 
 const ProfileCreatePost = (props) => {
   const classes = useStyles()

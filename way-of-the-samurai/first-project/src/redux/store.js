@@ -2,12 +2,6 @@ import profileReducer from './reducers/profile-reducer';
 import messagesReducer from './reducers/messages-reducer';
 import sidebarReducer from './reducers/sidebar-reducer';
 
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_CONTENT = 'UPDATE-NEW-POST-CONTENT';
-
-const SEND_MESSAGE = 'SEND-MESSAGE';
-const UPDATE_NEW_MESSAGE_CONTENT = 'UPDATE-NEW-MESSAGE-CONTENT';
-
 export const store = {
   _state: {
     messagesPage: {
@@ -60,17 +54,3 @@ export const store = {
     this._subscriber(this._state)
   }
 }
-
-export const addPostActionCreator = () => ({ type: ADD_POST })
-
-export const updateNewPostContentActionCreator = (newText) => ({
-  type: UPDATE_NEW_POST_CONTENT,
-  newText: newText
-})
-
-export const sendMessageCreator = () => ({ type: SEND_MESSAGE })
-
-export const updateNewMessageContentCreator = (content) => ({
-  type: UPDATE_NEW_MESSAGE_CONTENT,
-  newContent: content
-})
