@@ -11,7 +11,6 @@ import Bookmarks from './components/Bookmarks/Bookmarks';
 import Lists from './components/Lists/Lists';
 
 const App = (props) => {
-
   return (
     <>
       <Navbar />
@@ -21,18 +20,12 @@ const App = (props) => {
         <Route path='/notifications' component ={Notifications} />
         <Route path='/messages' render ={() =>
           <Messages
-            state={props.state.messagesPage}
-            dispatch={props.dispatch}
+            store={props.store}
           />
         } />
         <Route path='/bookmarks' component ={Bookmarks} />
         <Route path='/lists' component ={Lists} />
-        <Route path='/profile' render ={
-          () => <Profile
-            profilePage={props.state.profilePage}
-            dispatch={props.dispatch}
-          />
-        } />
+        <Route path='/profile' render ={() => <Profile store={props.store} />} />
       </div>
       <Sidebar />
     </>

@@ -2,7 +2,6 @@ import React from 'react';
 import './style.scss'
 import { Button } from '@material-ui/core';
 import useStyles from './style';
-import { addPostActionCreator, updateNewPostContentActionCreator } from '../../../redux/reducers/profile-reducer';
 
 const ProfileCreatePost = (props) => {
   const classes = useStyles()
@@ -10,14 +9,12 @@ const ProfileCreatePost = (props) => {
   const newPostElement = React.createRef();
 
   const addPost = () => {
-    props.dispatch(addPostActionCreator())
+    props.addPost()
   }
-
 
   const onPostChange = () => {
     const newText = newPostElement.current.value
-    const action = updateNewPostContentActionCreator(newText);
-    props.dispatch(action)
+    props.updateNewPostContent(newText)
   }
 
   return (

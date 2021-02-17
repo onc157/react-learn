@@ -1,16 +1,15 @@
 import ProfileHeader from './ProfileHeader/ProfileHeader';
 import ProfilePosts from './ProfilePosts/profilePosts';
-import ProfileCreatePost from './ProfileCreatePost/ProfileCreatePost';
+import ProfileCreatePostContainer from './ProfileCreatePost/ProfileCreatePostContainer';
 
 const Profile = (props) => {
+  const state = props.store.getState()
+
   return (
     <>
       <ProfileHeader />
-      <ProfileCreatePost
-        newPostContent={props.profilePage.newPostContent}
-        dispatch={props.dispatch}
-      />
-      <ProfilePosts postsData={props.profilePage.postsData}/>
+      <ProfileCreatePostContainer />
+      <ProfilePosts postsData={state.profilePage.postsData}/>
     </>
   )
 }

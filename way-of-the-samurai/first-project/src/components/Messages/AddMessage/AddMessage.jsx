@@ -2,20 +2,18 @@ import React from 'react';
 import './style.scss'
 import { Button } from '@material-ui/core';
 import useStyles from './style';
-import { sendMessageCreator, updateNewMessageContentCreator } from '../../../redux/reducers/messages-reducer';
 
-const ProfileCreatePost = (props) => {
+const AddMessage = (props) => {
   const classes = useStyles()
-  const newMessageContent = props.newMessageContent
   const newPostElement = React.createRef();
 
   const addMessage = () => {
-    props.dispatch(sendMessageCreator())
+    props.addMessage()
   }
 
   const onMessageChange = ({ target }) => {
     const newText = target.value
-    props.dispatch(updateNewMessageContentCreator(newText))
+    props.onMessageChange(newText)
   }
 
   return (
@@ -23,7 +21,7 @@ const ProfileCreatePost = (props) => {
       <textarea
         className="create-post_input"
         placeholder="Enter you message here"
-        value={newMessageContent}
+        value={props.newMessageContent}
         onChange={onMessageChange}
         ref={newPostElement}
       />
@@ -39,4 +37,4 @@ const ProfileCreatePost = (props) => {
   )
 }
 
-export default ProfileCreatePost
+export default AddMessage

@@ -1,12 +1,13 @@
 import User from './User/User'
 import Message from './Message/Message'
-import AddMessage from './AddMessage/AddMessage'
 import './style.scss'
+import AddMessageContainer from './AddMessage/AddMessageContainer';
 
 const Messages = (props) => {
-  const usersElements = props.state.usersData
+  const state = props.store.getState()
+  const usersElements = state.messagesPage.usersData
     .map((user, i) => <User name={user.name} id={user.id}/>)
-  const messagesElements = props.state.messagesData
+  const messagesElements = state.messagesPage.messagesData
     .map((elem, i) => <Message message={elem.message} id={elem.id}/>)
 
   return (
@@ -19,9 +20,8 @@ const Messages = (props) => {
           {messagesElements}
         </div>
       </div>
-      <AddMessage
-        dispatch={props.dispatch}
-        newMessageContent={props.state.newMessageContent}
+      <AddMessageContainer
+        store={props.store}
       />
     </>
   )
