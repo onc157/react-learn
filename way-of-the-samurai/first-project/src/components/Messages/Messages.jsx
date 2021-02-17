@@ -2,6 +2,7 @@ import User from './User/User'
 import Message from './Message/Message'
 import './style.scss'
 import AddMessageContainer from './AddMessage/AddMessageContainer';
+import { connect } from 'react-redux';
 
 const Messages = (props) => {
   const state = props.store.getState()
@@ -20,11 +21,18 @@ const Messages = (props) => {
           {messagesElements}
         </div>
       </div>
-      <AddMessageContainer
-        store={props.store}
-      />
+      <AddMessageContainer />
     </>
   )
 }
 
-export default Messages
+const mapStateToProps = (state) => {
+  return {
+    usersData: state.messagesPage.usersData,
+    messagesData: state.messagesPage.messagesData,
+  }
+}
+
+const MessagesW = connect(mapStateToProps)(Messages)
+
+export default MessagesW

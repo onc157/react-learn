@@ -25,7 +25,7 @@ const App = (props) => {
         } />
         <Route path='/bookmarks' component ={Bookmarks} />
         <Route path='/lists' component ={Lists} />
-        <Route path='/profile' render ={() => <Profile store={props.store} />} />
+        <Route path='/profile' render ={() => <Profile />} />
       </div>
       <Sidebar />
     </>

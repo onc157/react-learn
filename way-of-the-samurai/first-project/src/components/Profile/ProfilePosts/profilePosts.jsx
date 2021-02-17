@@ -1,4 +1,5 @@
 import Post from './post/Post';
+import { connect } from 'react-redux';
 
 const ProfilePosts = (props) => {
   const postElements = props.postsData
@@ -11,4 +12,12 @@ const ProfilePosts = (props) => {
   )
 }
 
-export default ProfilePosts
+const mapStateToProps = (state) => {
+  return {
+    postsData: state.profilePage.postsData
+  }
+}
+
+const ProfilePostsW = connect(mapStateToProps)(ProfilePosts)
+
+export default ProfilePostsW
