@@ -8,9 +8,9 @@ import Home from './components/Home/Home';
 import Explore from './components/Explore/Explore';
 import Notifications from './components/Notifications/Notifications';
 import Bookmarks from './components/Bookmarks/Bookmarks';
-import Lists from './components/Lists/Lists';
+import { UsersC } from './components/Users/UsersContainer';
 
-const App = (props) => {
+const App = () => {
   return (
     <>
       <Navbar />
@@ -18,13 +18,9 @@ const App = (props) => {
         <Route path='/home' component ={Home} />
         <Route path='/explore' component ={Explore} />
         <Route path='/notifications' component ={Notifications} />
-        <Route path='/messages' render ={() =>
-          <Messages
-            store={props.store}
-          />
-        } />
+        <Route path='/messages' render ={() => <Messages />} />
         <Route path='/bookmarks' component ={Bookmarks} />
-        <Route path='/lists' component ={Lists} />
+        <Route path='/users' component ={UsersC} />
         <Route path='/profile' render ={() => <Profile />} />
       </div>
       <Sidebar />

@@ -27,7 +27,7 @@ const Menu = () => {
           <NavLink to='/bookmarks'><BookmarkBorderIcon />Bookmarks</NavLink>
         </li>
         <li className="menu-wrapper--item">
-          <NavLink to='/lists'><ListAltIcon />Lists</NavLink>
+          <NavLink to='/users'><ListAltIcon />Users</NavLink>
         </li>
         <li className="menu-wrapper--item">
           <NavLink to='/profile'><PersonIcon />Profile</NavLink>

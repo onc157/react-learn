@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 const ProfilePosts = (props) => {
   const postElements = props.postsData
-    .map((post) => <Post name={post.name} account={post.account} content={post.content} id={post.id} />)
+    .map((post, i) => <Post name={post.name} account={post.account} content={post.content} key={i} id={post.id} />)
 
   return (
     <>

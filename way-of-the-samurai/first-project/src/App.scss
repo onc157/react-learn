@@ -34,6 +34,8 @@
 
 .main-wrapper {
   grid-area: main;
+  position: relative;
+
   padding: 10px;
 
   .profile {

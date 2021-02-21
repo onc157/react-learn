@@ -5,11 +5,10 @@ import AddMessageContainer from './AddMessage/AddMessageContainer';
 import { connect } from 'react-redux';
 
 const Messages = (props) => {
-  const state = props.store.getState()
-  const usersElements = state.messagesPage.usersData
-    .map((user, i) => <User name={user.name} id={user.id}/>)
-  const messagesElements = state.messagesPage.messagesData
-    .map((elem, i) => <Message message={elem.message} id={elem.id}/>)
+  const usersElements = props.usersData
+    .map((user, i) => <User name={user.name} key={i} id={user.id}/>)
+  const messagesElements = props.messagesData
+    .map((elem, i) => <Message message={elem.message} key={i} id={elem.id}/>)
 
   return (
     <>
