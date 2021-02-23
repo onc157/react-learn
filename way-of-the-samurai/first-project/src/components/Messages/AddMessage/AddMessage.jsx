@@ -7,13 +7,13 @@ const AddMessage = (props) => {
   const classes = useStyles()
   const newPostElement = React.createRef();
 
-  const addMessage = () => {
-    props.addMessage()
+  const sendMessage = () => {
+    props.sendMessage()
   }
 
-  const onMessageChange = ({ target }) => {
+  const updateNewMessageContent = ({ target }) => {
     const newText = target.value
-    props.onMessageChange(newText)
+    props.updateNewMessageContent(newText)
   }
 
   return (
@@ -22,14 +22,14 @@ const AddMessage = (props) => {
         className="create-post_input"
         placeholder="Enter you message here"
         value={props.newMessageContent}
-        onChange={onMessageChange}
+        onChange={updateNewMessageContent}
         ref={newPostElement}
       />
       <Button
         className={classes.root}
         variant="contained"
         color="primary"
-        onClick={addMessage}
+        onClick={sendMessage}
       >
         CREATE POST
       </Button>

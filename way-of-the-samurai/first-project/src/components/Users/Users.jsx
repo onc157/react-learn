@@ -1,6 +1,7 @@
 import userPhoto from '../../assets/img/avatar.png';
 import { Button } from '@material-ui/core';
 import useStyles from './style';
+import { NavLink } from 'react-router-dom';
 
 const Users = (props) => {
   const classes = useStyles()
@@ -22,6 +23,7 @@ const Users = (props) => {
                 ? 'users-pagination__item selected'
                 : 'users-pagination__item'}
               onClick={() => props.onPageChange(page)}
+              key={page}
             >{page}</div>
           })
         }
@@ -30,7 +32,9 @@ const Users = (props) => {
         props.usersData.map((user) => <div className="user" key={user.id}>
           <div className="user-panel">
             <div className="user-panel_logo">
-              <img src={ user.photos.small ? user.photos.small : userPhoto } alt='' />
+              <NavLink to={`profile/${user.id}`}>
+                <img src={ user.photos.small ? user.photos.small : userPhoto } alt='' />
+              </NavLink>
             </div>
             <div className="user-panel_button">
               {

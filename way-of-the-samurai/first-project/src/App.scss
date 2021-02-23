@@ -42,24 +42,35 @@
     @include border-light();
 
     &-wrapper {
+      display: flex;
+
       padding: 20px;
 
-      &_title {
-        @include roboto-bold();
-
-        font-size: 19px;
+      .profile-logo {
+        display: flex;
+        align-items: center;
+        margin-right: 10px;
       }
 
-      &_name {
-        color: $gray-color;
-        margin-bottom: 10px;
-        font-size: 13px;
+      .profile-about {
+        &_name {
+          @include roboto-bold();
+
+          font-size: 19px;
+        }
+
+        &_account {
+          color: $gray-color;
+          margin-bottom: 10px;
+          font-size: 13px;
+        }
+
+        &_description {
+          color: $base-color;
+          font-size: 15px;
+        }
       }
 
-      &_description {
-        color: $base-color;
-        font-size: 15px;
-      }
     }
   }
 }

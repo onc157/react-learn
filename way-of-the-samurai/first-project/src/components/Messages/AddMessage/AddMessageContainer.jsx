@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.scss'
-import { sendMessageCreator, updateNewMessageContentCreator } from '../../../redux/reducers/messages-reducer';
+import { sendMessage, updateNewMessageContent } from '../../../redux/reducers/messages-reducer';
 import AddMessage from './AddMessage';
 import { connect } from 'react-redux';
 
@@ -10,17 +10,9 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addMessage: () => {
-      dispatch(sendMessageCreator())
-    },
-    onMessageChange: (newText) => {
-      dispatch(updateNewMessageContentCreator(newText))
-    }
-  }
-}
-
-const AddMessageContainer = connect(mapStateToProps, mapDispatchToProps)(AddMessage)
+const AddMessageContainer = connect(mapStateToProps, {
+  sendMessage,
+  updateNewMessageContent
+})(AddMessage)
 
 export default AddMessageContainer

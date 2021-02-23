@@ -2,11 +2,11 @@ import './style.scss'
 import axios from 'axios'
 import { Component } from 'react';
 import {
-  followAC,
-  setCurrentPageAC,
-  setTotalUsersCountAC,
-  setUsersAC, toggleIsFetchingAC,
-  unfollowAC
+  follow,
+  setCurrentPage,
+  setTotalUsersCount,
+  setUsers, toggleIsFetching,
+  unfollow
 } from '../../redux/reducers/users-reducer';
 import { connect } from 'react-redux';
 import Users from './Users';
@@ -60,27 +60,11 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    follow: (userId) => {
-      dispatch(followAC(userId))
-    },
-    unfollow: (userId) => {
-      dispatch(unfollowAC(userId))
-    },
-    setUsers: (usersData) => {
-      dispatch(setUsersAC(usersData))
-    },
-    setCurrentPage: (currentPage) => {
-      dispatch(setCurrentPageAC(currentPage))
-    },
-    setTotalUsersCount: (usersCount) => {
-      dispatch(setTotalUsersCountAC(usersCount))
-    },
-    toggleIsFetching: (isFetching) => {
-      dispatch(toggleIsFetchingAC(isFetching))
-    },
-  }
-}
-
-export const UsersC = connect(mapStateToProps, mapDispatchToProps)(UsersContainer)
+export const UsersC = connect(mapStateToProps, {
+  follow,
+  unfollow,
+  setUsers,
+  setCurrentPage,
+  setTotalUsersCount,
+  toggleIsFetching,
+})(UsersContainer)

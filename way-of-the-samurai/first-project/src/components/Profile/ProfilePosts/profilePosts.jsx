@@ -18,6 +18,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-const ProfilePostsW = connect(mapStateToProps)(ProfilePosts)
+const ProfilePostsC = connect(mapStateToProps)(ProfilePosts)
 
-export default ProfilePostsW
+export default ProfilePostsC

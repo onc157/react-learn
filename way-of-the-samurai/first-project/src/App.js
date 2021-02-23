@@ -1,6 +1,5 @@
 import './App.scss'
 import Navbar from './components/Navbar/Navbar';
-import Profile from './components/Profile/Profile';
 import Sidebar from './components/Sidebar/Sidebar';
 import Messages from './components/Messages/Messages';
 import { Route } from 'react-router-dom';
@@ -9,6 +8,7 @@ import Explore from './components/Explore/Explore';
 import Notifications from './components/Notifications/Notifications';
 import Bookmarks from './components/Bookmarks/Bookmarks';
 import { UsersC } from './components/Users/UsersContainer';
+import ProfileContainer from './components/Profile/ProfileConteiner';
 
 const App = () => {
   return (
@@ -21,7 +21,7 @@ const App = () => {
         <Route path='/messages' render ={() => <Messages />} />
         <Route path='/bookmarks' component ={Bookmarks} />
         <Route path='/users' component ={UsersC} />
-        <Route path='/profile' render ={() => <Profile />} />
+        <Route path='/profile' render ={() => <ProfileContainer />} />
       </div>
       <Sidebar />
     </>
