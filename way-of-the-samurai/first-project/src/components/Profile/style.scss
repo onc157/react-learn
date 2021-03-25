@@ -1,0 +1,62 @@
+@import '../../assets/stylesheets/mixins';
+@import '../../assets/stylesheets/fonts';
+
+
+.profile {
+  @include border-light();
+
+  &-wrapper {
+    display: flex;
+
+    padding: 20px;
+
+    .profile-logo {
+      display: flex;
+      align-items: center;
+      margin-right: 10px;
+    }
+
+    .profile-about {
+      flex-grow: 1;
+
+      &_name {
+        @include roboto-bold();
+
+        font-size: 19px;
+      }
+
+      &_account {
+        color: $gray-color;
+        margin-bottom: 10px;
+        font-size: 13px;
+      }
+
+      &_description {
+        color: $base-color;
+        font-size: 15px;
+      }
+    }
+
+    .profile-contacts {
+      display: flex;
+
+      &__logo {
+        color: $blue-color;
+        transition: .4s;
+        border-radius: 5px;
+
+        margin-left: 10px;
+
+        &:hover {
+          color: $white-color;
+          background: $blue-color;
+        }
+      }
+    }
+  }
+}
+
+.create-post-wrapper {
+  @include border-light();
+  @include create-post();
+}

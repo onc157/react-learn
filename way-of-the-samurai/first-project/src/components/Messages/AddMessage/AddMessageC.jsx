@@ -10,9 +10,9 @@ const mapStateToProps = (state) => {
   }
 }
 
-const AddMessageContainer = connect(mapStateToProps, {
+const AddMessageC = connect(mapStateToProps, {
   sendMessage,
   updateNewMessageContent
 })(AddMessage)
 
-export default AddMessageContainer
+export default AddMessageC

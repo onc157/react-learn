@@ -1,12 +1,12 @@
-import ProfileHeader from './ProfileHeader/ProfileHeader';
-import ProfileCreatePostContainer from './ProfileCreatePost/ProfileCreatePostContainer';
+import ProfileInfo from './ProfileInfo/ProfileInfo';
+import ProfileCreatePostC from './ProfileCreatePost/ProfileCreatePostC';
 import ProfilePostsC from './ProfilePosts/profilePosts';
 
 const Profile = (props) => {
   return (
     <>
-      <ProfileHeader profile={props.profile} />
-      <ProfileCreatePostContainer />
+      <ProfileInfo profile={props.profile} />
+      <ProfileCreatePostC />
       <ProfilePostsC />
     </>
   )

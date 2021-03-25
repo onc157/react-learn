@@ -1,5 +1,4 @@
 import React from 'react';
-import './style.scss'
 import { addPost, updateNewPostContent } from '../../../redux/reducers/profile-reducer';
 import ProfileCreatePost from './ProfileCreatePost';
 import { connect } from 'react-redux';
@@ -10,6 +9,6 @@ const MapStateToProps = (state) => {
   }
 }
 
-const ProfileCreatePostContainer = connect(MapStateToProps, { addPost, updateNewPostContent})(ProfileCreatePost)
+const ProfileCreatePostC = connect(MapStateToProps, { addPost, updateNewPostContent})(ProfileCreatePost)
 
-export default ProfileCreatePostContainer
+export default ProfileCreatePostC

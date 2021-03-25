@@ -1,5 +1,4 @@
 import React from 'react';
-import './style.scss'
 import { Button } from '@material-ui/core';
 import useStyles from './style';
 

@@ -2,77 +2,13 @@
 @import './assets/stylesheets/fonts';
 @import './assets/stylesheets/mixins';
 
-.navbar-wrapper {
-  grid-area: navbar;
-  padding: 10px;
 
-  .logo { img {} }
-
-  .menu-wrapper {
-    &--item {
-      margin: 20px 0;
-
-      a {
-        @include helvetica-bold();
-        margin-left: 10px;
-        display: flex;
-        color: $base-color;
-        align-items: center;
-        text-decoration: none;
-
-        svg {
-          margin-right: 10px;
-        }
-      }
-
-        .active {
-          color: $blue-color;
-        }
-    }
-  }
-}
 
 .main-wrapper {
   grid-area: main;
   position: relative;
 
   padding: 10px;
-
-  .profile {
-    @include border-light();
-
-    &-wrapper {
-      display: flex;
-
-      padding: 20px;
-
-      .profile-logo {
-        display: flex;
-        align-items: center;
-        margin-right: 10px;
-      }
-
-      .profile-about {
-        &_name {
-          @include roboto-bold();
-
-          font-size: 19px;
-        }
-
-        &_account {
-          color: $gray-color;
-          margin-bottom: 10px;
-          font-size: 13px;
-        }
-
-        &_description {
-          color: $base-color;
-          font-size: 15px;
-        }
-      }
-
-    }
-  }
 }
 
 .sidebar-wrapper {

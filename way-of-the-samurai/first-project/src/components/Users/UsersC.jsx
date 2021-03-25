@@ -12,7 +12,7 @@ import { connect } from 'react-redux';
 import Users from './Users';
 import Preloader from '../common/Loader/Preloader';
 
-export class UsersContainer extends Component {
+export class UsersC extends Component {
 
   componentDidMount() {
     this.props.toggleIsFetching(true)
@@ -60,11 +60,11 @@ const mapStateToProps = (state) => {
   }
 }
 
-export const UsersC = connect(mapStateToProps, {
+export default connect(mapStateToProps, {
   follow,
   unfollow,
   setUsers,
   setCurrentPage,
   setTotalUsersCount,
   toggleIsFetching,
-})(UsersContainer)
+})(UsersC)

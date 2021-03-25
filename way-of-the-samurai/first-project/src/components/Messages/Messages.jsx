@@ -1,7 +1,7 @@
 import User from './User/User'
 import Message from './Message/Message'
 import './style.scss'
-import AddMessageContainer from './AddMessage/AddMessageContainer';
+import AddMessageC from './AddMessage/AddMessageC';
 import { connect } from 'react-redux';
 
 const Messages = (props) => {
@@ -20,7 +20,7 @@ const Messages = (props) => {
           {messagesElements}
         </div>
       </div>
-      <AddMessageContainer />
+      <AddMessageC />
     </>
   )
 }

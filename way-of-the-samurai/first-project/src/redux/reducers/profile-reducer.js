@@ -52,7 +52,7 @@ export const addPost = () => ({ type: ADD_POST })
 
 export const updateNewPostContent = (newText) => ({
   type: UPDATE_NEW_POST_CONTENT,
-  newText: newText,
+  newText,
 })
 
 export const setUserProfile = (profile) => ({

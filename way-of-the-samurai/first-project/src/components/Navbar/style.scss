@@ -1,0 +1,41 @@
+@import '../../assets/stylesheets/fonts';
+@import '../../assets/stylesheets/colors';
+@import '../../assets/stylesheets/mixins';
+
+.navbar-wrapper {
+  grid-area: navbar;
+  padding: 10px;
+
+  .navbar-header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .navbar-header__logo { img {} }
+
+    .login-wrapper {}
+  }
+
+  .menu-wrapper {
+    &--item {
+      margin: 20px 0;
+
+      a {
+        @include helvetica-bold();
+        margin-left: 10px;
+        display: flex;
+        color: $base-color;
+        align-items: center;
+        text-decoration: none;
+
+        svg {
+          margin-right: 10px;
+        }
+      }
+
+      .active {
+        color: $blue-color;
+      }
+    }
+  }
+}

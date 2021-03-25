@@ -1,6 +1,0 @@
-@import '../../../assets/stylesheets/mixins';
-
-.create-post-wrapper {
-  @include border-light();
-  @include create-post();
-}
