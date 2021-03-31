@@ -2,6 +2,7 @@ import userPhoto from '../../assets/img/avatar.png';
 import { Button } from '@material-ui/core';
 import useStyles from './style';
 import { NavLink } from 'react-router-dom';
+import axios from 'axios';
 
 const Users = (props) => {
   const classes = useStyles()
@@ -43,13 +44,37 @@ const Users = (props) => {
                     className={classes.root}
                     variant="contained"
                     color="primary"
-                    onClick={() => props.unfollow(user.id)}
+                    onClick={() => {
+                      axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,{
+                        withCredentials: true,
+                        headers: {
+                          "API-KEY": "7761d243-5e49-41a9-bdf3-6f571311a764"
+                        }
+                      })
+                        .then(response => {
+                          if (response.data.resultCode === 0) {
+                            props.unfollow(user.id);
+                          }
+                        })
+                    }}
                   >Unfollow</Button> :
                   <Button
                     className={classes.root}
                     variant="contained"
                     color="primary"
-                    onClick={() => props.follow(user.id)}
+                    onClick={() => {
+                      axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {},{
+                        withCredentials: true,
+                        headers: {
+                          "API-KEY": "7761d243-5e49-41a9-bdf3-6f571311a764"
+                        }
+                      })
+                        .then(response => {
+                          if (response.data.resultCode === 0) {
+                            props.follow(user.id);
+                          }
+                        })
+                    }}
                   >Follow</Button>
               }
             </div>
