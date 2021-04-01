@@ -1,12 +1,11 @@
 import './style.scss'
-import axios from 'axios'
 import { Component } from 'react';
 import {
   follow,
   setCurrentPage,
   setTotalUsersCount,
   setUsers, toggleIsFetching,
-  unfollow
+  unfollow, toggleFollowingProgress
 } from '../../redux/reducers/users-reducer';
 import { connect } from 'react-redux';
 import Users from './Users';
@@ -47,6 +46,8 @@ export class UsersC extends Component {
         usersData={this.props.usersData}
         follow={this.props.follow}
         unfollow={this.props.unfollow}
+        followingInProgress={this.props.followingInProgress}
+        toggleFollowingProgress={this.props.toggleFollowingProgress}
       />
     </>
   }
@@ -59,6 +60,7 @@ const mapStateToProps = (state) => {
     totalUsersCount: state.usersPage.totalUsersCount,
     currentPage: state.usersPage.currentPage,
     isFetching: state.usersPage.isFetching,
+    followingInProgress: state.usersPage.followingInProgress,
   }
 }
 
@@ -69,4 +71,5 @@ export default connect(mapStateToProps, {
   setCurrentPage,
   setTotalUsersCount,
   toggleIsFetching,
+  toggleFollowingProgress
 })(UsersC)
