@@ -4,15 +4,14 @@ import Navbar from './Navbar';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { setAuthUserData } from '../../redux/reducers/auth-reducer';
+import { authAPI } from '../../api/api';
 
 class NavbarC extends Component {
   componentDidMount() {
-    axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {
-      withCredentials: true
-    })
+    authAPI.setAuth()
       .then(response => {
-        if (response.data.resultCode === 0) {
-          const { id, email, login } = response.data.data
+        if (response.resultCode === 0) {
+          const { id, email, login } = response.data
           this.props.setAuthUserData({ id, email, login })
         }
       })

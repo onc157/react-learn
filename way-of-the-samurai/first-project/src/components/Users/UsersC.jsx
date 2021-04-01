@@ -11,17 +11,17 @@ import {
 import { connect } from 'react-redux';
 import Users from './Users';
 import Preloader from '../common/Loader/Preloader';
+import { usersAPI } from '../../api/api';
 
 export class UsersC extends Component {
 
   componentDidMount() {
     this.props.toggleIsFetching(true)
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
-      withCredentials: true
-    })
+
+    usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
       .then(response => {
         this.props.toggleIsFetching(false)
-        this.props.setUsers(response.data.items)
+        this.props.setUsers(response.items)
         // this.props.setTotalUsersCount(response.data.totalCount)
       })
   }
@@ -29,12 +29,10 @@ export class UsersC extends Component {
   onPageChange = (pageNumber) => {
     this.props.toggleIsFetching(true)
     this.props.setCurrentPage(pageNumber)
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`, {
-      withCredentials: true
-    })
+    usersAPI.getUsers(pageNumber, this.props.pageSize)
       .then(response => {
         this.props.toggleIsFetching(false)
-        this.props.setUsers(response.data.items)
+        this.props.setUsers(response.items)
       })
   }
 

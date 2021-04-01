@@ -3,6 +3,7 @@ import { Button } from '@material-ui/core';
 import useStyles from './style';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
+import { usersAPI } from '../../api/api';
 
 const Users = (props) => {
   const classes = useStyles()
@@ -45,14 +46,9 @@ const Users = (props) => {
                     variant="contained"
                     color="primary"
                     onClick={() => {
-                      axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,{
-                        withCredentials: true,
-                        headers: {
-                          "API-KEY": "7761d243-5e49-41a9-bdf3-6f571311a764"
-                        }
-                      })
+                      usersAPI.unfollow(user.id)
                         .then(response => {
-                          if (response.data.resultCode === 0) {
+                          if (response.resultCode === 0) {
                             props.unfollow(user.id);
                           }
                         })
@@ -63,14 +59,9 @@ const Users = (props) => {
                     variant="contained"
                     color="primary"
                     onClick={() => {
-                      axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {},{
-                        withCredentials: true,
-                        headers: {
-                          "API-KEY": "7761d243-5e49-41a9-bdf3-6f571311a764"
-                        }
-                      })
+                      usersAPI.follow(user.id)
                         .then(response => {
-                          if (response.data.resultCode === 0) {
+                          if (response.resultCode === 0) {
                             props.follow(user.id);
                           }
                         })
