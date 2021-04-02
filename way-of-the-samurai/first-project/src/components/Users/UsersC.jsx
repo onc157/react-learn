@@ -5,7 +5,7 @@ import {
   setCurrentPage,
   setTotalUsersCount,
   setUsers, toggleIsFetching,
-  unfollow, toggleFollowingProgress
+  unfollow, toggleFollowingProgress, getUsersThunkCreator
 } from '../../redux/reducers/users-reducer';
 import { connect } from 'react-redux';
 import Users from './Users';
@@ -15,14 +15,15 @@ import { usersAPI } from '../../api/api';
 export class UsersC extends Component {
 
   componentDidMount() {
-    this.props.toggleIsFetching(true)
-
-    usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
-      .then(response => {
-        this.props.toggleIsFetching(false)
-        this.props.setUsers(response.items)
-        // this.props.setTotalUsersCount(response.data.totalCount)
-      })
+    this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize)
+    // this.props.toggleIsFetching(true)
+    //
+    // usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
+    //   .then(response => {
+    //     this.props.toggleIsFetching(false)
+    //     this.props.setUsers(response.items)
+    //     // this.props.setTotalUsersCount(response.data.totalCount)
+    //   })
   }
 
   onPageChange = (pageNumber) => {
@@ -71,5 +72,6 @@ export default connect(mapStateToProps, {
   setCurrentPage,
   setTotalUsersCount,
   toggleIsFetching,
-  toggleFollowingProgress
+  toggleFollowingProgress,
+  getUsersThunkCreator,
 })(UsersC)
