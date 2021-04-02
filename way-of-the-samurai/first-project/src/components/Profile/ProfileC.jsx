@@ -1,10 +1,9 @@
-import Profile from './Profile';
-import { connect } from 'react-redux';
-import { setUserProfile } from '../../redux/reducers/profile-reducer';
-import { Component } from 'react';
+import Profile from './Profile'
+import { connect } from 'react-redux'
+import { setUser } from '../../redux/reducers/profile-reducer'
+import { Component } from 'react'
 import './style.scss'
-import { withRouter } from 'react-router';
-import { profileAPI } from '../../api/api';
+import { withRouter } from 'react-router'
 
 class ProfileC extends Component {
 
@@ -13,10 +12,7 @@ class ProfileC extends Component {
     if (!userId) {
       userId = 2
     }
-    profileAPI.setUser(userId)
-      .then(response => {
-        this.props.setUserProfile(response)
-      })
+    this.props.setUser(userId)
   }
 
   render() {
@@ -30,4 +26,4 @@ const mapStateToProps = (state) => ({
   profile: state.profilePage.profile
 })
 
-export default connect(mapStateToProps, {setUserProfile})(withRouter(ProfileC))
+export default connect(mapStateToProps, {setUser})(withRouter(ProfileC))
