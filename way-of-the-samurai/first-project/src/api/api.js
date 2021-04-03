@@ -9,15 +9,8 @@ const instance = axios.create({
 })
 
 export const authAPI = {
-  setAuth() {
+  me() {
     return instance.get(`auth/me`)
-      .then(response => response.data)
-  }
-}
-
-export const profileAPI = {
-  setUser(userId) {
-    return instance.get(`profile/${userId}`)
       .then(response => response.data)
   }
 }
@@ -25,6 +18,10 @@ export const profileAPI = {
 export const usersAPI = {
   getUsers(currentPage, pageSize) {
     return instance.get(`users?page=${currentPage}&count=${pageSize}`)
+      .then(response => response.data)
+  },
+  getProfile(userId) {
+    return instance.get(`profile/${userId}`)
       .then(response => response.data)
   },
 

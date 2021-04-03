@@ -3,6 +3,7 @@ import Message from './Message/Message'
 import './style.scss'
 import AddMessageC from './AddMessage/AddMessageC';
 import { connect } from 'react-redux';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 
 const Messages = (props) => {
   const usersElements = props.usersData
@@ -32,6 +33,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-const MessagesW = connect(mapStateToProps)(Messages)
+const AuthRedirectComponent = withAuthRedirect(Messages)
 
-export default MessagesW
+export default connect(mapStateToProps)(AuthRedirectComponent)

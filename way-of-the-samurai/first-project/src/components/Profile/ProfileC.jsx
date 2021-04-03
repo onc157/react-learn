@@ -1,9 +1,10 @@
 import Profile from './Profile'
 import { connect } from 'react-redux'
-import { setUser } from '../../redux/reducers/profile-reducer'
+import { getProfile } from '../../redux/reducers/profile-reducer'
 import { Component } from 'react'
 import './style.scss'
 import { withRouter } from 'react-router'
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 
 class ProfileC extends Component {
 
@@ -12,7 +13,7 @@ class ProfileC extends Component {
     if (!userId) {
       userId = 2
     }
-    this.props.setUser(userId)
+    this.props.getProfile(userId)
   }
 
   render() {
@@ -22,8 +23,10 @@ class ProfileC extends Component {
   }
 }
 
+let AuthRedirectComponent = withAuthRedirect(ProfileC)
+
 const mapStateToProps = (state) => ({
   profile: state.profilePage.profile
 })
 
-export default connect(mapStateToProps, {setUser})(withRouter(ProfileC))
+export default connect(mapStateToProps, {getProfile})(withRouter(AuthRedirectComponent))

@@ -8,6 +8,7 @@ import {
 import { connect } from 'react-redux';
 import Users from './Users';
 import Preloader from '../common/Loader/Preloader';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 
 export class UsersC extends Component {
 
@@ -48,10 +49,12 @@ const mapStateToProps = (state) => {
   }
 }
 
+const AuthRedirectComponent = withAuthRedirect(UsersC)
+
 export default connect(mapStateToProps, {
   follow,
   unfollow,
   setCurrentPage,
   toggleFollowingProgress,
   getUsers,
-})(UsersC)
+})(AuthRedirectComponent)
