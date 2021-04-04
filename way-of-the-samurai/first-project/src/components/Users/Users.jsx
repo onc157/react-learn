@@ -2,8 +2,7 @@ import userPhoto from '../../assets/img/avatar.png';
 import { Button } from '@material-ui/core';
 import useStyles from './style';
 import { NavLink } from 'react-router-dom';
-import axios from 'axios';
-import { usersAPI } from '../../api/api';
+import { Pagination } from '@material-ui/lab';
 
 const Users = (props) => {
   const classes = useStyles()
@@ -15,21 +14,19 @@ const Users = (props) => {
     pages.push(i)
   }
 
+  const handleChange = (event, value) => {
+    props.onPageChange(value)
+  }
+
   return (
     <div className="users-wrapper">
-      <div className='users-pagination'>
-        {
-          pages.map((page) => {
-            return <div
-              className={props.currentPage === page
-                ? 'users-pagination__item selected'
-                : 'users-pagination__item'}
-              onClick={() => props.onPageChange(page)}
-              key={page}
-            >{page}</div>
-          })
-        }
-      </div>
+      <Pagination
+        className={classes.pagination}
+        color='primary'
+        count={pagesCount}
+        page={props.currentPage}
+        onChange={handleChange}
+      />
       {
         props.usersData.map((user) => <div className="user" key={user.id}>
           <div className="user-panel">

@@ -5,6 +5,7 @@ import { Component } from 'react'
 import './style.scss'
 import { withRouter } from 'react-router'
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import { compose } from 'redux';
 
 class ProfileC extends Component {
 
@@ -23,10 +24,12 @@ class ProfileC extends Component {
   }
 }
 
-let AuthRedirectComponent = withAuthRedirect(ProfileC)
-
 const mapStateToProps = (state) => ({
   profile: state.profilePage.profile
 })
 
-export default connect(mapStateToProps, {getProfile})(withRouter(AuthRedirectComponent))
+export default compose(
+  connect(mapStateToProps, {getProfile}),
+  withRouter,
+  withAuthRedirect
+)(ProfileC)

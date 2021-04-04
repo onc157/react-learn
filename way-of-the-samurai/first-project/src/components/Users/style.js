@@ -8,6 +8,10 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '12px',
     padding: '1px 5px',
   },
+  pagination: {
+    display: 'flex',
+    justifyContent: 'center',
+  }
 }));
 
 export default useStyles;

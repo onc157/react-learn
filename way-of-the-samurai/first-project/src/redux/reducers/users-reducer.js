@@ -77,7 +77,7 @@ export const getUsers = (currentPage, pageSize) => (dispatch) => {
     .then(data => {
       dispatch(toggleIsFetching(false))
       dispatch(setUsers(data.items))
-      // this.props.setTotalUsersCount(data.totalCount)
+      dispatch(setTotalUsersCount(data.totalCount))
       dispatch(setCurrentPage(currentPage))
     })
 }
