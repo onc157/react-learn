@@ -56,6 +56,12 @@
   }
 }
 
+.status {
+  @include border-light();
+
+  padding: 5px 20px;
+}
+
 .create-post-wrapper {
   @include border-light();
   @include create-post();
