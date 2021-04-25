@@ -7,7 +7,7 @@ const Profile = (props) => {
   return (
     <>
       <ProfileInfo profile={props.profile} />
-      <ProfileStatus status={'Good Job!'} />
+      <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
       <ProfileCreatePostC />
       <ProfilePostsC />
     </>

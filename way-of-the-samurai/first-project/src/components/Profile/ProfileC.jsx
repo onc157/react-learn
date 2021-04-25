@@ -1,10 +1,9 @@
 import Profile from './Profile'
 import { connect } from 'react-redux'
-import { getProfile } from '../../redux/reducers/profile-reducer'
+import { getProfile, getStatus, updateStatus } from '../../redux/reducers/profile-reducer';
 import { Component } from 'react'
 import './style.scss'
 import { withRouter } from 'react-router'
-import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import { compose } from 'redux';
 
 class ProfileC extends Component {
@@ -12,9 +11,10 @@ class ProfileC extends Component {
   componentDidMount() {
     let userId = this.props.match.params.userId
     if (!userId) {
-      userId = 2
+      userId = 15734 // TODO: ADD API REQUEST!
     }
     this.props.getProfile(userId)
+    this.props.getStatus(userId)
   }
 
   render() {
@@ -25,10 +25,11 @@ class ProfileC extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  profile: state.profilePage.profile
+  profile: state.profilePage.profile,
+  status: state.profilePage.status
 })
 
 export default compose(
-  connect(mapStateToProps, {getProfile}),
+  connect(mapStateToProps, {getProfile, getStatus, updateStatus}),
   withRouter
 )(ProfileC)
