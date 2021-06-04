@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.scss'
-import { sendMessage, updateNewMessageContent } from '../../../redux/reducers/messages-reducer';
+import { sendMessage } from '../../../redux/reducers/messages-reducer';
 import AddMessage from './AddMessage';
 import { connect } from 'react-redux';
 
@@ -10,9 +10,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-const AddMessageC = connect(mapStateToProps, {
-  sendMessage,
-  updateNewMessageContent
-})(AddMessage)
+const AddMessageC = connect(mapStateToProps, { sendMessage })(AddMessage)
 
 export default AddMessageC

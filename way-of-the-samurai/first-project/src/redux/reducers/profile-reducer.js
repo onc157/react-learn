@@ -1,9 +1,9 @@
 import { profileAPI } from '../../api/api';
 
-const ADD_POST = 'ADD-POST'
-const UPDATE_NEW_POST_CONTENT = 'UPDATE-NEW-POST-CONTENT'
-const SET_USER_PROFILE = 'SET_USER_PROFILE'
-const SET_STATUS = 'SET_STATUS'
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_CONTENT = 'UPDATE-NEW-POST-CONTENT';
+const SET_USER_PROFILE = 'SET_USER_PROFILE';
+const SET_STATUS = 'SET_STATUS';
 
 const initialState = {
   postsData: [
@@ -31,7 +31,7 @@ const profileReducer = (state = initialState, action) => {
       const newPost = {
         name: 'DubaiAirlines',
         account: '@DubaiAirlines',
-        content: state.newPostContent,
+        content: action.postMessage,
         id: 3
       };
 
@@ -57,22 +57,13 @@ const profileReducer = (state = initialState, action) => {
   }
 }
 
-export const addPost = () => ({ type: ADD_POST })
+export const addPost = (postMessage) => ({ type: ADD_POST, postMessage })
 
-export const updateNewPostContent = (newText) => ({
-  type: UPDATE_NEW_POST_CONTENT,
-  newText,
-})
+export const updateNewPostContent = (newText) => ({ type: UPDATE_NEW_POST_CONTENT, newText })
 
-export const setUserProfile = (profile) => ({
-  type: SET_USER_PROFILE,
-  profile,
-})
+export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
 
-export const setStatus = (status) => ({
-  type: SET_STATUS,
-  status
-})
+export const setStatus = (status) => ({ type: SET_STATUS, status })
 
 export const getProfile = (userId) => (dispatch) => {
   profileAPI.getProfile(userId)

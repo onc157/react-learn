@@ -1,40 +1,45 @@
 import React from 'react';
 import './style.scss'
-import { Button } from '@material-ui/core';
+import {Button} from '@material-ui/core';
 import useStyles from './style';
+import {Form, FormikProvider, useFormik} from "formik";
+import {messagesValidationSchema as validationSchema} from "../../../utils/validationSchemas";
 
 const AddMessage = (props) => {
-  const classes = useStyles()
-  const newPostElement = React.createRef();
+    const classes = useStyles()
 
-  const sendMessage = () => {
-    props.sendMessage()
-  }
+    const formik = useFormik({
+        initialValues: {
+            message: '',
+        },
+        validationSchema,
+        onSubmit: async values => {
+            await props.sendMessage(values.message)
+            await formik.resetForm()
+        },
+    });
 
-  const updateNewMessageContent = ({ target }) => {
-    const newText = target.value
-    props.updateNewMessageContent(newText)
-  }
-
-  return (
-    <div className="create-message-wrapper">
-      <textarea
-        className="create-post_input"
-        placeholder="Enter you message here"
-        value={props.newMessageContent}
-        onChange={updateNewMessageContent}
-        ref={newPostElement}
-      />
-      <Button
-        className={classes.root}
-        variant="contained"
-        color="primary"
-        onClick={sendMessage}
-      >
-        CREATE POST
-      </Button>
-    </div>
-  )
+    return (
+        <div className="create-message-wrapper">
+            <FormikProvider value={formik}>
+                <Form className="create-post-form">
+                    <textarea
+                        className="create-post_input"
+                        required
+                        name="message"
+                        placeholder="Enter you message here"
+                        onChange={formik.handleChange}
+                        value={formik.values.message}/>
+                    <Button
+                        className={classes.root}
+                        variant="contained"
+                        color="primary"
+                        type="submit"
+                        disabled={!formik.isValid}>CREATE POST</Button>
+                </Form>
+            </FormikProvider>
+        </div>
+    )
 }
 
 export default AddMessage

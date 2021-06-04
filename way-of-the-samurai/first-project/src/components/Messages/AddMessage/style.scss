@@ -1,5 +1,11 @@
 @import '../../../assets/stylesheets/mixins';
 
 .create-message-wrapper {
+  .create-post-form {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
   @include create-post();
 }

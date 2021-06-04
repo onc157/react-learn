@@ -1,5 +1,4 @@
 const SEND_MESSAGE = 'SEND-MESSAGE';
-const UPDATE_NEW_MESSAGE_CONTENT = 'UPDATE-NEW-MESSAGE-CONTENT';
 
 const initialState = {
   usersData: [
@@ -15,33 +14,21 @@ const initialState = {
     {id: 2, message: 'She was beautiful'},
     {id: 3, message: 'This car is not bad'},
   ],
-  newMessageContent: '',
 }
 
 const messagesReducer = (state = initialState, action) => {
   switch (action.type) {
     case SEND_MESSAGE:
-      const message = state.newMessageContent
+      const message = action.message;
       return {
         ...state,
         messagesData: [...state.messagesData, { id: 4, message: message }],
-        newMessageContent: '',
-      }
-    case UPDATE_NEW_MESSAGE_CONTENT:
-      return {
-        ...state,
-        newMessageContent: action.newContent
       }
     default:
       return state
   }
 }
 
-export const sendMessage = () => ({ type: SEND_MESSAGE })
-
-export const updateNewMessageContent = (content) => ({
-  type: UPDATE_NEW_MESSAGE_CONTENT,
-  newContent: content
-})
+export const sendMessage = (message) => ({ type: SEND_MESSAGE, message })
 
 export default messagesReducer

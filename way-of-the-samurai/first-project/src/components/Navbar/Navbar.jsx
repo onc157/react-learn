@@ -19,7 +19,12 @@ const Navbar = (props) => {
               Sign In
             </Button>
           </NavLink>
-          : props.login
+          : <>
+                  <div className='login'>{props.login}</div>
+                  <Button onClick={() => props.userLogout()} className={classes.buttonAuth} variant="outlined" color="primary" >
+                      Log Out
+                  </Button>
+          </>
           }
         </div>
       </div>

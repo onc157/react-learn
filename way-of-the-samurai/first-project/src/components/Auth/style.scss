@@ -1,9 +1,14 @@
 @import '../../assets/stylesheets/colors';
 
-.login {
+.auth-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
   height: 100%;
+
+  .auth-form {
+
+  }
 }

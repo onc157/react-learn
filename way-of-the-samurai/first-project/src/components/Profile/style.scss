@@ -63,6 +63,12 @@
 }
 
 .create-post-wrapper {
+  .create-post-form {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
   @include border-light();
   @include create-post();
 }

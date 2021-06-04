@@ -2,7 +2,7 @@ import './style.scss'
 import { Component } from 'react';
 import Navbar from './Navbar';
 import { connect } from 'react-redux';
-import { getAuthUserData } from '../../redux/reducers/auth-reducer';
+import {getAuthUserData, userLogout} from '../../redux/reducers/auth-reducer';
 
 class NavbarC extends Component {
   componentDidMount() {
@@ -20,4 +20,4 @@ const mapStateToProps = (state) => ({
 })
 
 
-export default connect(mapStateToProps, { getAuthUserData })(NavbarC)
+export default connect(mapStateToProps, { getAuthUserData, userLogout })(NavbarC)

@@ -5,6 +5,7 @@ import { Component } from 'react'
 import './style.scss'
 import { withRouter } from 'react-router'
 import { compose } from 'redux';
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
 class ProfileC extends Component {
 
@@ -31,5 +32,5 @@ const mapStateToProps = (state) => ({
 
 export default compose(
   connect(mapStateToProps, {getProfile, getStatus, updateStatus}),
-  withRouter
+  withRouter, withAuthRedirect
 )(ProfileC)
