@@ -12,7 +12,7 @@ class ProfileC extends Component {
   componentDidMount() {
     let userId = this.props.match.params.userId
     if (!userId) {
-      userId = 15734 // TODO: ADD API REQUEST!
+      userId = this.props.authUserId
     }
     this.props.getProfile(userId)
     this.props.getStatus(userId)
@@ -27,7 +27,8 @@ class ProfileC extends Component {
 
 const mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
-  status: state.profilePage.status
+  status: state.profilePage.status,
+  authUserId: state.auth.id,
 })
 
 export default compose(

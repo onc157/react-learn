@@ -1,8 +1,6 @@
 import {authAPI} from '../../api/api';
 
 const SET_AUTH_USER_DATA = 'SET_USER_DATA';
-// const USER_LOGIN = 'USER_LOGIN';
-// const USER_LOGOUT = 'USER_LOGOUT';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
 const initialState = {
@@ -30,7 +28,7 @@ export const setAuthUserData = (id, email, login, isAuth) => ({
 })
 
 export const getAuthUserData = () => (dispatch) => {
-    authAPI.me()
+    return authAPI.me()
         .then(response => {
             if (response.resultCode === 0) {
                 const {id, email, login} = response.data

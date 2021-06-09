@@ -4,6 +4,7 @@ import messagesReducer from './reducers/messages-reducer'
 import sidebarReducer from './reducers/sidebar-reducer'
 import usersReducer from './reducers/users-reducer'
 import authReducer from './reducers/auth-reducer'
+import appReducer from './reducers/app-reducer'
 import thunkMiddleware from 'redux-thunk'
 
 const reducers = combineReducers({
@@ -12,6 +13,7 @@ const reducers = combineReducers({
   sidebarPage: sidebarReducer,
   usersPage: usersReducer,
   auth: authReducer,
+  app: appReducer,
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
